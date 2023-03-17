@@ -36,8 +36,11 @@ export const Page = ({articleData, fetchPages, setSelectedPage, currentPage}) =>
       <p>Published: {date}</p>
       <p>Content: {currentPage.content}</p>
       <p>Tags: {articleData.tag}</p>
-      <button onClick={handleDelete}>Delete Article</button>
-      <button onClick={backToWikiButton}>Back to Wiki List</button>
+      <div>
+        <br></br>
+      <button id='delete' onClick={handleDelete}>Delete Article</button>
+      <button className='wiki' onClick={backToWikiButton}>Back to Wiki List</button>
+      </div>
     </>
   )
 } 

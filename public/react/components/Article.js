@@ -41,13 +41,14 @@ const backToWikiButton = async () => {
 return (
   <>
     <form onSubmit={handleSubmit}>
-      <div><input type='text' name='title' placeholder="Title:" value={ newPage.title } onChange={handleChange}/></div>
-      <div><input type='text' name='content' placeholder="Content:" value={ newPage.content } onChange={handleChange}/></div>
-      <div><input type='text' name='status' placeholder="Status:" value={ newPage.status } onChange={handleChange}/></div>
-      <div><input type='text' name='name' placeholder="Author:" value={ newPage.name } onChange={handleChange}/></div>
-      <div><input type='text' name='email' placeholder="Email:" value={ newPage.email } onChange={handleChange}/></div>
+      <div><input className="inputbox" type='text' name='title' placeholder="Title:" value={ newPage.title } onChange={handleChange}/></div>
+      <div><input className="inputbox" type='text' name='content' placeholder="Content:" value={ newPage.content } onChange={handleChange}/></div>
+      <div><input className="inputbox" type='text' name='status' placeholder="Status:" value={ newPage.status } onChange={handleChange}/></div>
+      <div><input className="inputbox" type='text' name='name' placeholder="Author:" value={ newPage.name } onChange={handleChange}/></div>
+      <div><input className="inputbox" type='text' name='email' placeholder="Author Email:" value={ newPage.email } onChange={handleChange}/></div>
+      <br></br>
       <div><button type='submit'>Create Page</button></div>
-      <div><button onClick={backToWikiButton}>Back to Wiki List</button></div>
+      <div><button className='wiki' onClick={backToWikiButton}>Back to Wiki List</button></div>
     </form>
   </>
 )}

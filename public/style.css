@@ -8,3 +8,21 @@ main {
   padding: 1rem;
   height: 100vh;
 }
+
+#addpage {
+  color: blue;
+  font-weight: bold;
+}
+
+.inputbox {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.wiki {
+  color: blue;
+}
+
+#delete {
+  color: red;
+}

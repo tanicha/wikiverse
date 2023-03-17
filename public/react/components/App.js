@@ -38,7 +38,7 @@ export const App = () => {
 			<main>	
 				<h1>WikiVerse</h1>
 				<h2>An interesting 📚</h2>
-				<div><button onClick={addPageButton}>Add Page</button></div>
+				<div><button id='addpage' onClick={addPageButton}>Add Page</button></div>
 				<div>
 					{pages.map((pages, idx) => <PagesList 
 					pages={pages} 
