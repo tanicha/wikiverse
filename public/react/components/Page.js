@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import apiURL from '../api'
 
-export const Page = ({articleData, fetchPages, setSelectedPage, currentPage}) => {
+export const Page = ({articleData, fetchPages, setSelectedArticle, currentPage}) => {
 
   //DELETE fetch req
   const fetchDelete = async() => {
@@ -9,15 +9,15 @@ export const Page = ({articleData, fetchPages, setSelectedPage, currentPage}) =>
       method: 'DELETE'
     })
     fetchPages()
-    setSelectedPage("Page List")
+    setSelectedArticle("Page List")
   }
 
-  const handleDelete = (e) => {
+  const handleDelete = (ev) => {
     fetchDelete()
   }
   
   const backToWikiButton = async () => {
-    setSelectedPage("Page List")
+    setSelectedArticle("Page List")
   }
 
   //testing console.logs
@@ -38,8 +38,8 @@ export const Page = ({articleData, fetchPages, setSelectedPage, currentPage}) =>
       <p>Tags: {articleData.tag}</p>
       <div>
         <br></br>
-      <button id='delete' onClick={handleDelete}>Delete Article</button>
-      <button className='wiki' onClick={backToWikiButton}>Back to Wiki List</button>
+        <button id='delete' onClick={handleDelete}>Delete Article</button>
+        <button className='wiki' onClick={backToWikiButton}>Back to Wiki List</button>
       </div>
     </>
   )

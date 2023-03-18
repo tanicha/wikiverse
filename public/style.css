@@ -26,3 +26,18 @@ main {
 #delete {
   color: red;
 }
+
+#h2 {
+  font-style: italic;
+  font-weight: bold;
+}
+
+#h1 {
+  text-decoration: underline;
+}
+
+#text {
+  font-weight: bold;
+  text-decoration: underline;
+}
+

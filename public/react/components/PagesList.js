@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
 import apiURL from '../api'
 
-export const PagesList = ({ pages, setCurrentPage, setArticleData, setSelectedPage }) => {
+export const PagesList = ({ pages, setCurrentPage, setArticleData, setSelectedArticle }) => {
 
   //GET fetch req
-	const fetchPage = async() => {
+	const getPage = async() => {
 		const res = await fetch(`${apiURL}/wiki/${(pages.slug)}`)
 		const articleData = await res.json()
 		setArticleData(articleData)
 	}
 
-	const handleClick = (e) => {
+	const handleClick = (ev) => {
 		setCurrentPage(pages)
-		fetchPage()
-		setSelectedPage("Single Page")
+		getPage()
+		setSelectedArticle("Single Page")
 	}
 
 	return (

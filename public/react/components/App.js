@@ -9,18 +9,18 @@ import apiURL from '../api';
 export const App = () => {
 	//highest component states
 	const [pages, setPages] = useState([]);
-	const [selectedPage, setSelectedPage] = useState('Page List')
-	const [newPage, setNewPage] = useState({title: '', content: '', status: '', name: ''})
-	const [currentPage, setCurrentPage] = useState({})
 	const [articleData, setArticleData] = useState({})
+	const [selectedArticle, setSelectedArticle] = useState('Page List')
+	const [currentPage, setCurrentPage] = useState({})
+	const [newPage, setNewPage] = useState({title: '', content: '', status: '', name: ''})
 
 	async function fetchPages(){
 		try {
-			const response = await fetch(`${apiURL}/wiki`);
+			const response = await fetch(`${apiURL}/wiki`)
 			const pagesData = await response.json();
 			setPages(pagesData);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
+		} catch (error) {
+			console.log("Oh no an error! ", error)
 		}
 	}
 
@@ -29,37 +29,41 @@ export const App = () => {
 	}, []);
 
 	const addPageButton = () => {
-		setSelectedPage("Add Page")
+		setSelectedArticle("Add Page")
 	}
 
 	//conditional statement to render specific page
-	if (selectedPage === "Page List"){
+	if (selectedArticle === "Page List"){
 		return (
 			<main>	
-				<h1>WikiVerse</h1>
-				<h2>An interesting 📚</h2>
+				<h1 id='h1'>WikiVerse</h1>
+				<h2 id='h2'>An interesting 📚</h2>
+				<br></br>
 				<div><button id='addpage' onClick={addPageButton}>Add Page</button></div>
+				<br></br>
+				<p id='text'>Published Articles:</p>
+				<br></br>
 				<div>
 					{pages.map((pages, idx) => <PagesList 
 					pages={pages} 
 					key={idx} 
-					setSelectedPage={setSelectedPage} 
+					setSelectedArticle={setSelectedArticle} 
 					setCurrentPage={setCurrentPage} 
 					setArticleData={setArticleData}/>)}
 				</div>
 			</main>
-	)} else if (selectedPage === "Add Page") {
+	)} else if (selectedArticle === "Add Page") {
 		return (
 			<main>
 			<h1>WikiVerse</h1>
 			<h2>Add Page:</h2>
-			<Article newPage={newPage} setNewPage={setNewPage} setSelectedPage={setSelectedPage}/>
+			<Article newPage={newPage} setNewPage={setNewPage} setSelectedArticle={setSelectedArticle}/>
 			</main>
-	)} else if (selectedPage === "Single Page") {
+	)} else if (selectedArticle === "Single Page") {
 		return(
 			<main>
 			<h1>WikiVerse</h1>
-			<Page setSelectedPage={setSelectedPage} currentPage={currentPage} fetchPages={fetchPages} articleData={articleData}/>
+			<Page setSelectedArticle={setSelectedArticle} currentPage={currentPage} fetchPages={fetchPages} articleData={articleData}/>
 			</main>
 	)}
 }
