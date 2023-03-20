@@ -19,7 +19,7 @@ async function addPage() {
 
 useEffect(() => {
   addPage();
-}, []);
+}, [])
 
 const handleChange = (ev) => {
   const value = ev.target.value
